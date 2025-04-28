@@ -3,4 +3,5 @@ packages:
   - libs/*
   - sensors/*
 onlyBuiltDependencies:
+  - '@serialport/bindings-cpp'
   - i2c-bus
