@@ -5,5 +5,9 @@
   },
   "keywords": [],
   "author": "cdl",
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "i2c-bus": "^5.2.3",
+    "@types/i2c-bus": "^5.1.2"
+  }
 }

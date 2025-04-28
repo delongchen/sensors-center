@@ -1,4 +1,6 @@
 packages:
-  - 'app'
-  - 'libs/*'
-  - 'sensors/*'
+  - app
+  - libs/*
+  - sensors/*
+onlyBuiltDependencies:
+  - i2c-bus
