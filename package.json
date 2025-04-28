@@ -9,6 +9,7 @@
   "dependencies": {
     "i2c-bus": "^5.2.3",
     "@types/i2c-bus": "^5.1.2",
-    "serialport": "^13.0.0"
+    "serialport": "^13.0.0",
+    "node-dht-sensor": "^0.4.5"
   }
 }

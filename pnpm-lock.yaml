@@ -14,6 +14,9 @@ importers:
       i2c-bus:
         specifier: ^5.2.3
         version: 5.2.3
+      node-dht-sensor:
+        specifier: ^0.4.5
+        version: 0.4.5
       serialport:
         specifier: ^13.0.0
         version: 13.0.0
@@ -23,6 +26,8 @@ importers:
   libs/core: {}
 
   sensors/BH1750FVI: {}
+
+  sensors/DHT22: {}
 
   sensors/HH0706: {}
 
@@ -123,9 +128,15 @@ packages:
   nan@2.22.2:
     resolution: {integrity: sha512-DANghxFkS1plDdRsX0X9pm0Z6SJNN6gBdtXfanwoZ8hooC5gosGFSBGRYHUVPz1asKA/kMRqDRdHrluZ61SpBQ==}
 
+  node-addon-api@1.7.2:
+    resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
+
   node-addon-api@8.3.0:
     resolution: {integrity: sha512-8VOpLHFrOQlAH+qA0ZzuGRlALRA6/LVh8QJldbrC4DY0hXoMP0l4Acq8TzFC018HztWiRqyCEj2aTWY2UvnJUg==}
     engines: {node: ^18 || ^20 || >= 21}
+
+  node-dht-sensor@0.4.5:
+    resolution: {integrity: sha512-abGeUZcRBrGl+jdCFXaDjGlYZo0gf4oFhr0/6IALAC/i4dlIxK7OsbU15SgfTZVe4QhaBjVqcASWWvM32if/7A==}
 
   node-gyp-build@4.8.4:
     resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
@@ -221,7 +232,13 @@ snapshots:
 
   nan@2.22.2: {}
 
+  node-addon-api@1.7.2: {}
+
   node-addon-api@8.3.0: {}
+
+  node-dht-sensor@0.4.5:
+    dependencies:
+      node-addon-api: 1.7.2
 
   node-gyp-build@4.8.4: {}
 
