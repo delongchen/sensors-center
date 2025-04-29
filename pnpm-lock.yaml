@@ -6,7 +6,13 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  app: {}
+
+  libs/core: {}
+
+  sensors/BH1750FVI:
     dependencies:
       '@types/i2c-bus':
         specifier: ^5.1.2
@@ -14,22 +20,18 @@ importers:
       i2c-bus:
         specifier: ^5.2.3
         version: 5.2.3
+
+  sensors/DHT22:
+    dependencies:
       node-dht-sensor:
         specifier: ^0.4.5
         version: 0.4.5
+
+  sensors/HH0706:
+    dependencies:
       serialport:
         specifier: ^13.0.0
         version: 13.0.0
-
-  app: {}
-
-  libs/core: {}
-
-  sensors/BH1750FVI: {}
-
-  sensors/DHT22: {}
-
-  sensors/HH0706: {}
 
 packages:
 

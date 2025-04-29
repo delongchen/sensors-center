@@ -1,5 +1,5 @@
 {
-  "name": "DHT22",
+  "name": "dht22",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "node-dht-sensor": "^0.4.5"
+  }
 }

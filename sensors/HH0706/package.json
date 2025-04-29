@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "serialport": "^13.0.0"
+  }
 }
