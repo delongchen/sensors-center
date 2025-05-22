@@ -1,0 +1,10 @@
+{
+  "name": "@sensors-center/types",
+  "version": "1.0.0",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts"
+    }
+  }
+}

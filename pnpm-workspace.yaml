@@ -2,6 +2,7 @@ packages:
   - app
   - libs/*
   - sensors/*
+  - types
 onlyBuiltDependencies:
   - '@serialport/bindings-cpp'
   - i2c-bus

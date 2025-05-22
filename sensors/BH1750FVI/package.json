@@ -11,5 +11,8 @@
   "dependencies": {
     "i2c-bus": "^5.2.3",
     "@types/i2c-bus": "^5.1.2"
+  },
+  "devDependencies": {
+    "@sensors-center/types": "workspace:*"
   }
 }

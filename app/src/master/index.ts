@@ -1,8 +1,10 @@
-import { readFile } from 'node:fs/promises'
+import { createClusterManager } from '../common/cluster-manager'
 
 
-const main = async () => {
-  await readFile('index.html', 'utf8');
+export const masterMain = async () => {
+  const manager = createClusterManager({
+    submodules: ['1', '2']
+  })
+
+  manager.start()
 }
-
-export default main

@@ -27,7 +27,11 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  libs/core: {}
+  libs/tools:
+    devDependencies:
+      '@sensors-center/types':
+        specifier: workspace:*
+        version: link:../../types
 
   sensors/BH1750FVI:
     dependencies:
@@ -37,6 +41,10 @@ importers:
       i2c-bus:
         specifier: ^5.2.3
         version: 5.2.3
+    devDependencies:
+      '@sensors-center/types':
+        specifier: workspace:*
+        version: link:../../types
 
   sensors/DHT22:
     dependencies:
@@ -49,6 +57,8 @@ importers:
       serialport:
         specifier: ^13.0.0
         version: 13.0.0
+
+  types: {}
 
 packages:
 

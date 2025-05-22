@@ -6,6 +6,7 @@ module.exports = {
   input: {
     master: 'src/master/index.ts',
     worker: 'src/worker/index.ts',
+    main: 'src/main.ts',
   },
   output: [
     {
