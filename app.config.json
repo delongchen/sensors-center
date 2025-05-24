@@ -1,0 +1,11 @@
+{
+  "submodules": [
+    {
+      "path": "@sensors-center/test1",
+      "autostart": true,
+      "config": {
+        "foo": "bar"
+      }
+    }
+  ]
+}

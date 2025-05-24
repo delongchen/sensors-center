@@ -1,5 +1,7 @@
 export interface ModuleContext<T> {
   state: T
+  send: (vec: number[]) => Promise<void>
+  moduleConfig: any
 }
 
 export interface IModule<State> {
@@ -11,7 +13,9 @@ export interface IModule<State> {
 
 export interface ModuleInfo {
   path: string;
-  autostart: boolean;
+  label?: string;
+  autostart?: boolean;
+  config?: any;
 }
 
 export interface AppConfig {

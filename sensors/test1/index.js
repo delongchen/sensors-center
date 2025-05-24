@@ -1,5 +1,9 @@
 const sleep = (n) => new Promise(res => { setTimeout(res, n) })
 
+/**
+ *
+ * @type { import('../../types').IModule }
+ */
 module.exports = {
   async init(ctx) {
     return {
@@ -8,7 +12,7 @@ module.exports = {
   },
   async start(ctx) {
     while (true) {
-      console.info(ctx)
+      await ctx.send([1])
       await sleep(1000)
     }
   },

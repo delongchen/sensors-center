@@ -17,6 +17,9 @@ importers:
       '@koa/router':
         specifier: ^13.1.0
         version: 13.1.0
+      commander:
+        specifier: ^14.0.0
+        version: 14.0.0
       koa:
         specifier: ^3.0.0
         version: 3.0.0
@@ -73,6 +76,10 @@ importers:
       serialport:
         specifier: ^13.0.0
         version: 13.0.0
+    devDependencies:
+      '@sensors-center/types':
+        specifier: workspace:*
+        version: link:../../types
 
   sensors/test1: {}
 
@@ -357,6 +364,10 @@ packages:
   cache-content-type@1.0.1:
     resolution: {integrity: sha512-IKufZ1o4Ut42YUrZSo8+qnMTrFuKkvyoLXUywKz9GJ5BrhOFGhLdkx9sG4KAnVvbY6kEcSFjLQul+DVmBm2bgA==}
     engines: {node: '>= 6.0.0'}
+
+  commander@14.0.0:
+    resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
+    engines: {node: '>=20'}
 
   content-disposition@0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
@@ -831,6 +842,8 @@ snapshots:
     dependencies:
       mime-types: 2.1.35
       ylru: 1.4.0
+
+  commander@14.0.0: {}
 
   content-disposition@0.5.4:
     dependencies:

@@ -4,6 +4,7 @@ import { ModuleInfo } from '@sensors-center/types'
 
 interface WorkerExt {
   instance: Worker,
+  info: ModuleInfo,
   restarts: number,
   lastActive: number,
   creation: number,
@@ -11,37 +12,33 @@ interface WorkerExt {
 
 interface ClusterManagerProps {
   submodules?: ModuleInfo[],
-  messageHandler?: (worker: Worker, message: any) => void
+  onWorkerForked?: (worker: Worker, info: ModuleInfo) => void,
 }
 
 export const createClusterManager = (
   {
     submodules = [],
-    messageHandler = () => {},
+    onWorkerForked = () => {},
   }: ClusterManagerProps,
 ) => {
   const workers: Map<number, WorkerExt> = new Map
 
-  const initWorker = (worker: Worker) => {
-    workers.set(worker.id, {
-      instance: worker,
-      restarts: 0,
-      lastActive: Date.now(),
-      creation: Date.now()
-    })
-
-    worker.on('message', msg => {
-      messageHandler(worker, msg)
-    })
-  }
-
   const forkWorkers = () => {
     for (const submodule of submodules) {
       const worker = cluster.fork({
-        SUBMODULE_PATH: submodule,
+        SUBMODULE_PATH: submodule.path,
+        SUBMODULE_CONFIG: JSON.stringify(submodule.config),
       })
 
-      initWorker(worker)
+      onWorkerForked(worker, submodule)
+
+      workers.set(worker.id, {
+        info: submodule,
+        instance: worker,
+        restarts: 0,
+        lastActive: Date.now(),
+        creation: Date.now()
+      })
     }
   }
 
@@ -70,5 +67,6 @@ export const createClusterManager = (
   return {
     start,
     sendMessage,
+    workers,
   }
 }

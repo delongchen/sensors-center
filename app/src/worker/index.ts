@@ -40,29 +40,31 @@ const loadModule = (modPath: string) => {
 }
 
 export const workerMain = async () => {
-  const { SUBMODULE_PATH } = process.env
+  const { SUBMODULE_PATH, SUBMODULE_CONFIG = '{}' } = process.env
 
   if (SUBMODULE_PATH === undefined) {
-    process.exit('E_NO_MOD_NAME')
+    process.exit(10001)
   }
 
   let mod: IModule<any>
   try {
     mod = loadModule(SUBMODULE_PATH)
   } catch (e) {
-    process.exit('E_LOAD_MOD_FAILED')
+    process.exit(10002)
   }
 
   const ctx: ModuleContext<undefined> = {
-    state: undefined
+    state: undefined,
+    send: (vec: number[]) => sendMessageAsync(vec),
+    moduleConfig: JSON.parse(SUBMODULE_CONFIG),
   }
 
   ctx.state = await mod.init(ctx).catch(err => {
-    process.exit('E_MOD_INIT_FAILED')
+    process.exit(10003)
   })
 
   mod.start(ctx)
     .catch(err => {
-      process.exit('E_')
+      process.exit(10004)
     })
 }
