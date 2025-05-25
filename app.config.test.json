@@ -1,0 +1,10 @@
+{
+  "submodules": [
+    {
+      "path": "@sensors-center/test1",
+      "config": {
+        "foo": "bar"
+      }
+    }
+  ]
+}

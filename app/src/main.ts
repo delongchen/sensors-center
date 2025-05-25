@@ -1,15 +1,10 @@
 import cluster from 'node:cluster'
-import * as path from 'node:path'
-import { readFileSync } from 'node:fs'
-
-import { Command } from 'commander'
-
-import { masterMain } from './master'
-import { workerMain } from './worker'
 
 
 if (cluster.isPrimary) {
-  const program = new Command()
+  const program = new (require('commander').Command())
+  const path = require('node:path')
+  const { readFileSync } = require('node:fs')
 
   program
     .option('-c, --config <path>', 'path to the config', './app.config.json')
@@ -21,7 +16,7 @@ if (cluster.isPrimary) {
   const configFIleText = readFileSync(configFilePath, 'utf8')
   const config = JSON.parse(configFIleText)
 
-  masterMain(config)
+  require('./master').masterMain(config)
 } else {
-  workerMain()
+  require('./worker').workerMain()
 }

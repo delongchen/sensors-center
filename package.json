@@ -3,7 +3,8 @@
   "description": "",
   "scripts": {
     "build-app": "cd app && pnpm run build",
-    "start": "node ./app/dist/main.js"
+    "start-test": "node ./app/dist/main.js -c ./app.config.test.json",
+    "start-pi": "node ./app/dist/main.js -c ./app.config.pi.json"
   },
   "keywords": [],
   "author": "cdl",

@@ -32,7 +32,7 @@ module.exports = {
     while (ctx.state.run) {
       await bus.i2cRead(address, 2, buf)
       const lux = ((buf[1] << 8) | buf[0])
-      await ctx.send([lux])
+      await ctx.sendDataUpdate([lux])
       await sleep(intervalMS)
     }
   },

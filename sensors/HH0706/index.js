@@ -50,7 +50,7 @@ module.exports = {
     ctx.state.port.on('data', data => {
       if (ctx.state.run && isDataLegal(data)) {
         const db = (data[4] << 8) + data[3]
-        ctx.send([db])
+        ctx.sendDataUpdate([db])
       }
     })
   },

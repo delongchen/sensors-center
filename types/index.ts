@@ -1,6 +1,8 @@
+export * from './message'
+
 export interface ModuleContext<T> {
   state: T
-  send: (vec: number[]) => Promise<void>
+  sendDataUpdate: (data: number[]) => Promise<void>
   moduleConfig: any
 }
 

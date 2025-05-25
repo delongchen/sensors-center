@@ -28,7 +28,7 @@ module.exports = {
 
     while (ctx.state.run) {
       const res = await sensor.read(sensorType, sensorPort)
-      await ctx.send([res.temperature, res.humidity])
+      await ctx.sendDataUpdate([res.temperature, res.humidity])
       await sleep(intervalMS)
     }
   },

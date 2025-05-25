@@ -12,7 +12,7 @@ module.exports = {
   },
   async start(ctx) {
     while (true) {
-      await ctx.send([1])
+      await ctx.sendDataUpdate([1])
       await sleep(1000)
     }
   },

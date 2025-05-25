@@ -1,4 +1,11 @@
-import type { IModule, ModuleContext } from '@sensors-center/types'
+import type {
+  CommandRequest,
+  CommandResponse,
+  DataUpdate,
+  IModule,
+  ModuleContext,
+  ParentMessage
+} from '@sensors-center/types'
 import { moduleLogger } from '../logger'
 
 
@@ -42,12 +49,44 @@ const loadModule = (modPath: string) => {
   return result
 }
 
+const sendDataUpdate = (data: number[]) => {
+  return sendMessageAsync({
+    type: 'data_update',
+    timestamp: Date.now(),
+    pid: process.pid,
+    data
+  } satisfies DataUpdate)
+}
+
+const sendCommandResponse = (msg: CommandRequest, data?: any) => {
+  return sendMessageAsync({
+    type: 'command_response',
+    timestamp: Date.now(),
+    pid: process.pid,
+    requestId: msg.requestId,
+    command: msg.command,
+    success: true,
+    data
+  } satisfies CommandResponse)
+}
+
 export const workerMain = async () => {
   const { SUBMODULE_PATH, SUBMODULE_CONFIG = '{}' } = process.env
 
   if (SUBMODULE_PATH === undefined) {
     process.exit(10001)
   }
+
+  process.on('message', (msg: ParentMessage) => {
+    switch (msg.type) {
+      case 'command':
+        // todo
+        sendCommandResponse(msg)
+        break
+      case 'data_request':
+        break
+    }
+  })
 
   let mod: IModule<any>
   try {
@@ -58,7 +97,7 @@ export const workerMain = async () => {
 
   const ctx: ModuleContext<undefined> = {
     state: undefined,
-    send: (vec: number[]) => sendMessageAsync(vec),
+    sendDataUpdate,
     moduleConfig: JSON.parse(SUBMODULE_CONFIG),
   }
 
