@@ -1,5 +1,8 @@
 import type { IModule, ModuleContext } from '@sensors-center/types'
+import { moduleLogger } from '../logger'
 
+
+const logger = moduleLogger(process.env.SUBMODULE_PATH!)
 
 const sendMessageAsync = (message: any) => {
   return new Promise<void>((resolve, reject) => {
@@ -62,6 +65,8 @@ export const workerMain = async () => {
   ctx.state = await mod.init(ctx).catch(err => {
     process.exit(10003)
   })
+
+  logger.info('Worker initialized')
 
   mod.start(ctx)
     .catch(err => {
