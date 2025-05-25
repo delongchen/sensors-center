@@ -2,7 +2,7 @@ import cluster from 'node:cluster'
 
 
 if (cluster.isPrimary) {
-  const program = new (require('commander').Command())
+  const program = new (require('commander').Command)
   const path = require('node:path')
   const { readFileSync } = require('node:fs')
 
