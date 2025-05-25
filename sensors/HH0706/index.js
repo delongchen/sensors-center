@@ -27,10 +27,12 @@ const isDataLegal = data => (
  * }> }
  */
 module.exports = {
-  async init() {
+  async init(ctx) {
+    const { path = '/dev/ttyAMA2', baudRate = 115200 } = ctx.moduleConfig
+
     const port = new SerialPort.SerialPort({
-      path: '/dev/ttyAMA2',
-      baudRate: 115200,
+      path,
+      baudRate,
       autoOpen: false,
     })
 
@@ -47,7 +49,8 @@ module.exports = {
 
     ctx.state.port.on('data', data => {
       if (ctx.state.run && isDataLegal(data)) {
-        ctx.send([(data[4] << 8) + data[3]])
+        const db = (data[4] << 8) + data[3]
+        ctx.send([db])
       }
     })
   },

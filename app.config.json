@@ -1,10 +1,28 @@
 {
   "submodules": [
     {
-      "path": "@sensors-center/test1",
+      "path": "dht22",
       "autostart": true,
       "config": {
-        "foo": "bar"
+        "sensorType": 22,
+        "sensorPort": 17,
+        "intervalMS": 5000
+      }
+    },
+    {
+      "path": "bh1750fvi",
+      "autostart": true,
+      "config": {
+        "address": 35,
+        "intervalMS": 200
+      }
+    },
+    {
+      "path": "hh0706",
+      "autostart": true,
+      "config": {
+        "path": "/dev/ttyAMA2",
+        "baudRate": 115200
       }
     }
   ]

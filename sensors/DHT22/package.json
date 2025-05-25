@@ -12,5 +12,8 @@
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
     "node-dht-sensor": "^0.4.5"
+  },
+  "devDependencies": {
+    "@sensors-center/types": "workspace:*"
   }
 }
