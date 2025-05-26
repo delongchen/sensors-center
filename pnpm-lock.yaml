@@ -17,9 +17,18 @@ importers:
       '@koa/router':
         specifier: ^13.1.0
         version: 13.1.0
+      bh1750fvi:
+        specifier: workspace:*
+        version: link:../sensors/BH1750FVI
       commander:
         specifier: ^14.0.0
         version: 14.0.0
+      dht22:
+        specifier: workspace:*
+        version: link:../sensors/DHT22
+      hh0706:
+        specifier: workspace:*
+        version: link:../sensors/HH0706
       koa:
         specifier: ^3.0.0
         version: 3.0.0
