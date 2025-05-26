@@ -1,4 +1,5 @@
-const sensor = require('node-dht-sensor')
+const { readFile } = require('node:fs/promises')
+
 
 const sleep = (ms) => new Promise(res => { setTimeout(res, ms) })
 /**
@@ -20,15 +21,12 @@ module.exports = {
 
     ctx.state.run = true
 
-    const {
-      sensorType = 22,
-      sensorPort = 17,
-      intervalMS = 5000,
-    } = ctx.moduleConfig
+    const { intervalMS = 2000 } = ctx.moduleConfig
 
     while (ctx.state.run) {
-      const res = await sensor.read(sensorType, sensorPort)
-      await ctx.sendDataUpdate([res.temperature, res.humidity])
+      const text = await readFile('/sys/class/thermal/thermal_zone0/temp', 'utf8')
+      const pi_temp = +(text.trim())
+      await ctx.sendDataUpdate([pi_temp])
       await sleep(intervalMS)
     }
   },

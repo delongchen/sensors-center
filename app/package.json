@@ -22,7 +22,8 @@
     "@types/koa__router": "^12.0.4",
     "@sensor/bh1750fvi": "workspace:*",
     "@sensor/dht22": "workspace:*",
-    "@sensor/hh0706": "workspace:*"
+    "@sensor/hh0706": "workspace:*",
+    "@sensor/pi-temperature": "workspace:*"
   },
   "dependencies": {
     "koa": "^3.0.0",

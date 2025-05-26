@@ -12,18 +12,18 @@ interface WorkerExt {
 
 interface ClusterManagerProps {
   submodules?: ModuleInfo[],
-  onWorkerForked?: (worker: Worker, info: ModuleInfo) => void,
 }
 
 export const createClusterManager = (
   {
     submodules = [],
-    onWorkerForked = () => {},
   }: ClusterManagerProps,
 ) => {
   const workers: Map<number, WorkerExt> = new Map
 
-  const forkWorkers = () => {
+  const forkWorkers = (
+    onWorkerForked: (worker: Worker, info: ModuleInfo) => void
+  ) => {
     for (const submodule of submodules) {
       const worker = cluster.fork({
         SUBMODULE_PATH: submodule.path,
@@ -42,8 +42,12 @@ export const createClusterManager = (
     }
   }
 
-  const start = () => {
-    forkWorkers()
+  const start = ({
+    onWorkerForked = () => {}
+  }: {
+    onWorkerForked: (worker: Worker, info: ModuleInfo) => void,
+  }) => {
+    forkWorkers(onWorkerForked)
   }
 
   const sendMessage = (id: number, message: any) => {

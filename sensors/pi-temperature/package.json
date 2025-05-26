@@ -1,0 +1,4 @@
+{
+  "name": "@sensor/pi-temperature",
+  "main": "index.js"
+}

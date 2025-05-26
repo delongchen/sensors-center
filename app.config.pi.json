@@ -24,6 +24,13 @@
         "path": "/dev/ttyAMA2",
         "baudRate": 115200
       }
+    },
+    {
+      "path": "@sensor/pi-temperature",
+      "autostart": true,
+      "config": {
+        "intervalMS": 2000
+      }
     }
   ]
 }

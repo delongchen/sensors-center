@@ -16,7 +16,7 @@ if (cluster.isPrimary) {
   const configFIleText = readFileSync(configFilePath, 'utf8')
   const config = JSON.parse(configFIleText)
 
-  require('./master').masterMain(config)
+  require('./master')(config)
 } else {
-  require('./worker').workerMain()
+  require('./worker')()
 }

@@ -70,7 +70,7 @@ const sendCommandResponse = (msg: CommandRequest, data?: any) => {
   } satisfies CommandResponse)
 }
 
-export const workerMain = async () => {
+module.exports = async () => {
   const { SUBMODULE_PATH, SUBMODULE_CONFIG = '{}' } = process.env
 
 
