@@ -102,6 +102,7 @@ export const workerMain = async () => {
   }
 
   ctx.state = await mod.init(ctx).catch(err => {
+    logger.error(`Error while initializing module: ${err}`)
     process.exit(10003)
   })
 
