@@ -73,6 +73,7 @@ const sendCommandResponse = (msg: CommandRequest, data?: any) => {
 export const workerMain = async () => {
   const { SUBMODULE_PATH, SUBMODULE_CONFIG = '{}' } = process.env
 
+
   if (SUBMODULE_PATH === undefined) {
     process.exit(10001)
   }
@@ -91,7 +92,8 @@ export const workerMain = async () => {
   let mod: IModule<any>
   try {
     mod = loadModule(SUBMODULE_PATH)
-  } catch (e) {
+  } catch (e: any) {
+    logger.error(e.message)
     process.exit(10002)
   }
 

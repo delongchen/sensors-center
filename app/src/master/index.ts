@@ -24,6 +24,10 @@ export const masterMain = async (config: unknown) => {
     onWorkerForked: (worker, info) => {
       logger.info(`Spawned worker for ${info.path} (PID: ${worker.process.pid})`)
 
+      worker.on('exit', code => {
+        logger.info(`Worker ${info.path} (PID: ${worker.process.pid}) exit! code: ${code}`)
+      })
+
       worker.on('message', (message: ChildMessage) => {
         if (message.requestId !== undefined && pendingRequests.has(message.requestId)) {
           const resolver = pendingRequests.get(message.requestId)!
