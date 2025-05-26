@@ -1,7 +1,7 @@
 {
   "submodules": [
     {
-      "path": "dht22",
+      "path": "@sensor/dht22",
       "autostart": true,
       "config": {
         "sensorType": 22,
@@ -10,7 +10,7 @@
       }
     },
     {
-      "path": "bh1750fvi",
+      "path": "@sensor/bh1750fvi",
       "autostart": true,
       "config": {
         "address": 35,
@@ -18,7 +18,7 @@
       }
     },
     {
-      "path": "hh0706",
+      "path": "@sensor/hh0706",
       "autostart": true,
       "config": {
         "path": "/dev/ttyAMA2",
