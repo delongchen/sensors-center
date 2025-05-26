@@ -1,5 +1,5 @@
 {
-  "name": "bh1750fvi",
+  "name": "@sensor/bh1750fvi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

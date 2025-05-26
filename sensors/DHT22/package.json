@@ -1,5 +1,5 @@
 {
-  "name": "dht22",
+  "name": "@sensor/dht22",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
