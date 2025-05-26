@@ -10,10 +10,6 @@
   "author": "cdl",
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
-    "i2c-bus": "^5.2.3",
-    "@types/i2c-bus": "^5.1.2",
-    "node-dht-sensor": "^0.4.5",
-    "serialport": "^13.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.3"

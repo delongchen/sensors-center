@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
+    "serialport": "^13.0.0"
   },
   "devDependencies": {
     "@sensors-center/types": "workspace:*"

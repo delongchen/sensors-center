@@ -36,7 +36,7 @@ export const masterMain = async (config: unknown) => {
         }
 
         if (message.type === 'data_update') {
-          logger.info(`[data_update] ${info.path}: ${message.data}`)
+          console.info(`[data_update] ${info.path}: ${message.data}`)
         } else if (message.type === 'error') {
 
         }
