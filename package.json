@@ -10,6 +10,8 @@
   "author": "cdl",
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.3"

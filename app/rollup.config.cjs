@@ -22,5 +22,7 @@ module.exports = {
     ...builtinModules.map(name => `node:${name}`),
     ...Object.keys(pkg?.dependencies ?? {}),
     ...Object.keys(pkg?.devDependencies ?? {}),
+    'winston',
+    'winston-daily-rotate-file'
   ]
 }

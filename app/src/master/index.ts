@@ -13,7 +13,34 @@ import { randomUUID } from 'node:crypto'
 
 
 const isAppConfig = (config: unknown): config is AppConfig => {
-  return true
+  if (typeof config !== 'object' || config === null) return false;
+
+  // 检查submodules属性存在性
+  if (!('submodules' in config)) return false;
+  if (!('title' in config)) return false;
+
+  // 验证submodules是数组类型
+  const { submodules, title } = config as {
+    submodules: unknown,
+    title: unknown
+  };
+  if (!Array.isArray(submodules)) return false;
+  if (typeof title !== 'string') return false;
+
+  // 遍历验证每个子模块
+  for (const mod of submodules) {
+    // 检查模块对象类型
+    if (typeof mod !== 'object' || mod === null) return false;
+
+    // 验证必填的path属性及类型
+    if (!('path' in mod) || typeof mod.path !== 'string') return false;
+
+    // 检查可选属性类型（存在时才验证）
+    if ('label' in mod && typeof mod.label !== 'string') return false;
+    if ('autostart' in mod && typeof mod.autostart !== 'boolean') return false;
+  }
+
+  return true;
 }
 
 module.exports = async (config: unknown) => {
@@ -59,7 +86,6 @@ module.exports = async (config: unknown) => {
         })
     })
   }
-
 
   const sendCommand = (workerID: number, command: ProcessCommand, payload?: any) => {
     return new Promise<CommandResponse>((resolve, reject) => {

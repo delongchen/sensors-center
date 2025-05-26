@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      winston:
+        specifier: ^3.17.0
+        version: 3.17.0
+      winston-daily-rotate-file:
+        specifier: ^5.0.0
+        version: 5.0.0(winston@3.17.0)
     devDependencies:
       '@types/node':
         specifier: ^22.15.3
@@ -23,12 +30,6 @@ importers:
       koa:
         specifier: ^3.0.0
         version: 3.0.0
-      winston:
-        specifier: ^3.17.0
-        version: 3.17.0
-      winston-daily-rotate-file:
-        specifier: ^5.0.0
-        version: 5.0.0(winston@3.17.0)
     devDependencies:
       '@rollup/plugin-typescript':
         specifier: ^12.1.2

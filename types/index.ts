@@ -1,9 +1,16 @@
+import type { Logger } from 'winston'
+
 export * from './message'
 
 export interface ModuleContext<T> {
   state: T
   sendDataUpdate: (data: number[]) => Promise<void>
   moduleConfig: any
+  logger: {
+    info: (msg: string) => Logger,
+    error: (msg: string) => Logger,
+    debug: (msg: string) => Logger,
+  }
 }
 
 export interface IModule<State> {
@@ -21,5 +28,6 @@ export interface ModuleInfo {
 }
 
 export interface AppConfig {
+  title: string;
   submodules: ModuleInfo[]
 }

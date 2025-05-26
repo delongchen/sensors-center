@@ -98,6 +98,7 @@ module.exports = async () => {
   }
 
   const ctx: ModuleContext<undefined> = {
+    logger,
     state: undefined,
     sendDataUpdate,
     moduleConfig: JSON.parse(SUBMODULE_CONFIG),

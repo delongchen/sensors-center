@@ -28,8 +28,6 @@
   "dependencies": {
     "koa": "^3.0.0",
     "@koa/router": "^13.1.0",
-    "commander": "^14.0.0",
-    "winston": "^3.17.0",
-    "winston-daily-rotate-file": "^5.0.0"
+    "commander": "^14.0.0"
   }
 }

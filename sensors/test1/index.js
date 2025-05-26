@@ -6,6 +6,8 @@ const sleep = (n) => new Promise(res => { setTimeout(res, n) })
  */
 module.exports = {
   async init(ctx) {
+    ctx.logger.debug(`config: ${JSON.stringify(ctx.moduleConfig)}`);
+
     return {
       name: 'test1'
     }
@@ -13,7 +15,8 @@ module.exports = {
   async start(ctx) {
     while (true) {
       await ctx.sendDataUpdate([1])
-      await sleep(1000)
+      await sleep(2000)
+      ctx.logger.debug('test tick 2000ms')
     }
   },
   async stop(ctx) {

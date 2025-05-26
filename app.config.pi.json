@@ -1,4 +1,5 @@
 {
+  "title": "pi4",
   "submodules": [
     {
       "path": "@sensor/dht22",
