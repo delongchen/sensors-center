@@ -7,6 +7,19 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@types/i2c-bus':
+        specifier: ^5.1.2
+        version: 5.1.2
+      i2c-bus:
+        specifier: ^5.2.3
+        version: 5.2.3
+      node-dht-sensor:
+        specifier: ^0.4.5
+        version: 0.4.5
+      serialport:
+        specifier: ^13.0.0
+        version: 13.0.0
     devDependencies:
       '@types/node':
         specifier: ^22.15.3
@@ -68,33 +81,18 @@ importers:
         version: 5.8.3
 
   sensors/BH1750FVI:
-    dependencies:
-      '@types/i2c-bus':
-        specifier: ^5.1.2
-        version: 5.1.2
-      i2c-bus:
-        specifier: ^5.2.3
-        version: 5.2.3
     devDependencies:
       '@sensors-center/types':
         specifier: workspace:*
         version: link:../../types
 
   sensors/DHT22:
-    dependencies:
-      node-dht-sensor:
-        specifier: ^0.4.5
-        version: 0.4.5
     devDependencies:
       '@sensors-center/types':
         specifier: workspace:*
         version: link:../../types
 
   sensors/HH0706:
-    dependencies:
-      serialport:
-        specifier: ^13.0.0
-        version: 13.0.0
     devDependencies:
       '@sensors-center/types':
         specifier: workspace:*
