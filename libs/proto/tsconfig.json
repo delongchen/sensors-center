@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "rootDir": "./dist",
+    "baseUrl": ".",
+    "strict": true,
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "./dist/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@libs/proto",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/index.*.ts",
+      "import": "./dist/index.*.js",
+      "require": "./dist/index.*.js"
+    }
+  },
+  "devDependencies": {
+    "ts-proto": "^2.7.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@bufbuild/buf": "^1.54.0"
+  }
+}

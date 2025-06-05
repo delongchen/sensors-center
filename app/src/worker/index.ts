@@ -73,7 +73,6 @@ const sendCommandResponse = (msg: CommandRequest, data?: any) => {
 module.exports = async () => {
   const { SUBMODULE_PATH, SUBMODULE_CONFIG = '{}' } = process.env
 
-
   if (SUBMODULE_PATH === undefined) {
     process.exit(10001)
   }
@@ -81,7 +80,9 @@ module.exports = async () => {
   process.on('message', (msg: ParentMessage) => {
     switch (msg.type) {
       case 'command':
-        // todo
+        // todo:
+        // there is no command handler
+        // just send back the msg
         sendCommandResponse(msg)
         break
       case 'data_request':
