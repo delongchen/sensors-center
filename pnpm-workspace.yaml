@@ -4,6 +4,6 @@ packages:
   - sensors/*
   - types
 onlyBuiltDependencies:
-  - '@serialport/bindings-cpp'
+  - "@serialport/bindings-cpp"
   - i2c-bus
   - node-dht-sensor

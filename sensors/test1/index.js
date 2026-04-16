@@ -1,4 +1,7 @@
-const sleep = (n) => new Promise(res => { setTimeout(res, n) })
+const sleep = (n) =>
+  new Promise((res) => {
+    setTimeout(res, n);
+  });
 
 /**
  *
@@ -7,19 +10,15 @@ const sleep = (n) => new Promise(res => { setTimeout(res, n) })
 module.exports = {
   async init(ctx) {
     return {
-      name: 'test1'
-    }
+      name: "test1",
+    };
   },
   async start(ctx) {
     while (true) {
-      await ctx.sendDataUpdate([1])
-      await sleep(1000)
+      await ctx.sendDataUpdate([1]);
+      await sleep(1000);
     }
   },
-  async stop(ctx) {
-  },
-  async destroy(ctx) {
-  }
-}
-
-
+  async stop(ctx) {},
+  async destroy(ctx) {},
+};

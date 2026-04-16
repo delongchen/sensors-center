@@ -1,16 +1,16 @@
-export * from './message'
+export * from "./message";
 
 export interface ModuleContext<T> {
-  state: T
-  sendDataUpdate: (data: number[]) => Promise<void>
-  moduleConfig: any
+  state: T;
+  sendDataUpdate: (data: number[]) => Promise<void>;
+  moduleConfig: any;
 }
 
 export interface IModule<State> {
-  init(ctx: ModuleContext<undefined>): Promise<State>
-  start(ctx: ModuleContext<State>): Promise<void>
-  stop(ctx: ModuleContext<State>): Promise<void>
-  destroy(ctx: ModuleContext<State>): Promise<void>
+  init(ctx: ModuleContext<undefined>): Promise<State>;
+  start(ctx: ModuleContext<State>): Promise<void>;
+  stop(ctx: ModuleContext<State>): Promise<void>;
+  destroy(ctx: ModuleContext<State>): Promise<void>;
 }
 
 export interface ModuleInfo {
@@ -21,5 +21,5 @@ export interface ModuleInfo {
 }
 
 export interface AppConfig {
-  submodules: ModuleInfo[]
+  submodules: ModuleInfo[];
 }

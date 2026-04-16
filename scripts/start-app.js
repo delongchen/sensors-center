@@ -1,1 +1,1 @@
-const app = require('../app/dist/main')
+const app = require("../app/dist/main");

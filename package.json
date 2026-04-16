@@ -1,17 +1,20 @@
 {
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "cdl",
   "scripts": {
+    "lint": "oxlint",
+    "format": "oxfmt",
     "build-app": "cd app && pnpm run build",
     "start-test": "node ./app/dist/main.js -c ./app.config.test.json",
     "start-pi": "node ./app/dist/main.js -c ./app.config.pi.json"
   },
-  "keywords": [],
-  "author": "cdl",
-  "packageManager": "pnpm@10.10.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^22.15.3"
-  }
+    "@types/node": "^25.6.0",
+    "oxfmt": "^0.45",
+    "oxlint": "^1"
+  },
+  "packageManager": "pnpm@10.33.0"
 }

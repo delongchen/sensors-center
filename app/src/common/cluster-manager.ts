@@ -1,72 +1,69 @@
-import cluster, { type Worker } from 'node:cluster'
-import { ModuleInfo } from '@sensors-center/types'
-
+import cluster, { type Worker } from "node:cluster";
+import { ModuleInfo } from "@sensors-center/types";
 
 interface WorkerExt {
-  instance: Worker,
-  info: ModuleInfo,
-  restarts: number,
-  lastActive: number,
-  creation: number,
+  instance: Worker;
+  info: ModuleInfo;
+  restarts: number;
+  lastActive: number;
+  creation: number;
 }
 
 interface ClusterManagerProps {
-  submodules?: ModuleInfo[],
-  onWorkerForked?: (worker: Worker, info: ModuleInfo) => void,
+  submodules?: ModuleInfo[];
+  onWorkerForked?: (worker: Worker, info: ModuleInfo) => void;
 }
 
-export const createClusterManager = (
-  {
-    submodules = [],
-    onWorkerForked = () => {},
-  }: ClusterManagerProps,
-) => {
-  const workers: Map<number, WorkerExt> = new Map
+export const createClusterManager = ({
+  submodules = [],
+  onWorkerForked = () => {},
+}: ClusterManagerProps) => {
+  const workers: Map<number, WorkerExt> = new Map();
 
   const forkWorkers = () => {
     for (const submodule of submodules) {
       const worker = cluster.fork({
         SUBMODULE_PATH: submodule.path,
         SUBMODULE_CONFIG: JSON.stringify(submodule.config),
-      })
+      });
 
-      onWorkerForked(worker, submodule)
+      onWorkerForked(worker, submodule);
 
       workers.set(worker.id, {
         info: submodule,
         instance: worker,
         restarts: 0,
         lastActive: Date.now(),
-        creation: Date.now()
-      })
+        creation: Date.now(),
+      });
     }
-  }
+  };
 
   const start = () => {
-    forkWorkers()
-  }
+    forkWorkers();
+  };
 
   const sendMessage = (id: number, message: any) => {
     return new Promise<void>((resolve, reject) => {
-      const exist = workers.get(id)
+      const exist = workers.get(id);
 
       if (exist !== undefined) {
-        exist.instance.send(message, err => {
+        exist.instance.send(message, (err) => {
           if (err !== null) {
-            reject(err)
+            reject(err);
           } else {
-            resolve()
+            resolve();
           }
-        })
+        });
       } else {
-        reject(new Error(`Worker '${id}' not found`))
+        reject(new Error(`Worker '${id}' not found`));
       }
-    })
-  }
+    });
+  };
 
   return {
     start,
     sendMessage,
     workers,
-  }
-}
+  };
+};

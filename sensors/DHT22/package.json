@@ -2,18 +2,18 @@
   "name": "@sensor/dht22",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.10.0",
   "dependencies": {
-    "node-dht-sensor": "^0.4.5"
+    "node-dht-sensor": "^0.4"
   },
   "devDependencies": {
     "@sensors-center/types": "workspace:*"
-  }
+  },
+  "packageManager": "pnpm@10.10.0"
 }

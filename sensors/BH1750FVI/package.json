@@ -2,17 +2,16 @@
   "name": "@sensor/bh1750fvi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-  },
   "keywords": [],
   "author": "",
-  "packageManager": "pnpm@10.10.0",
+  "main": "index.js",
+  "scripts": {},
   "dependencies": {
-    "i2c-bus": "^5.2.3",
-    "@types/i2c-bus": "^5.1.2"
+    "@types/i2c-bus": "^5",
+    "i2c-bus": "^5"
   },
   "devDependencies": {
     "@sensors-center/types": "workspace:*"
-  }
+  },
+  "packageManager": "pnpm@10.10.0"
 }

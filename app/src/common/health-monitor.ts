@@ -1,3 +1,1 @@
-const createHealthMonitor = () => {
-
-}
+const createHealthMonitor = () => {};

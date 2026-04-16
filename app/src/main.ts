@@ -1,22 +1,20 @@
-import cluster from 'node:cluster'
-
+import cluster from "node:cluster";
+import { argv } from "node:process";
 
 if (cluster.isPrimary) {
-  const program = new (require('commander').Command)
-  const path = require('node:path')
-  const { readFileSync } = require('node:fs')
+  const program = new (require("commander").Command)();
+  const path = require("node:path");
+  const { readFileSync } = require("node:fs");
 
-  program
-    .option('-c, --config <path>', 'path to the config', './app.config.json')
-    .parse(process.argv)
+  program.option("-c, --config <path>", "path to the config", "./app.config.json").parse(argv);
 
-  const options = program.opts()
+  const options = program.opts();
 
-  const configFilePath = path.resolve(options.config)
-  const configFIleText = readFileSync(configFilePath, 'utf8')
-  const config = JSON.parse(configFIleText)
+  const configFilePath = path.resolve(options.config);
+  const configFIleText = readFileSync(configFilePath, "utf8");
+  const config = JSON.parse(configFIleText);
 
-  require('./master').masterMain(config)
+  require("./master").masterMain(config);
 } else {
-  require('./worker').workerMain()
+  require("./worker").workerMain();
 }
